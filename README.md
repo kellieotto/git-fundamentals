@@ -1,8 +1,9 @@
 git-fundamentals
 ================
 
-A starting point for discovering the wonderful world of Git, GitHub, and Git
-Annex (Assistant)
+A starting point for discovering the wonderful world of Git and GitHub.
+
+These materials were adapted from [the D-Lab Tutorial here](https://github.com/dlab-berkeley/git-fundamentals) for the SGSA Computing seminar on April 21, 2017 by Kellie Ottoboni.
 
 ## Getting the tools / Setup
 
@@ -71,10 +72,3 @@ nicely and is searchable:
 
 Read more here: http://git-annex.branchable.com/
 
-## Forking! What's that?
-
-Forking on github is same as cloning in the command line.
-
-## Branching is also very important for collaboration
-
-For branching, you should check the above link for now.
