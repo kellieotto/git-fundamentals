@@ -23,17 +23,21 @@ $ git init
 
 If you look in your directory now, you'll see that there is something called `.git`
 
+~~~{.input}
+$ ls -a
+~~~
 ~~~{.output}
 .    ..   .git
 ~~~
 
 ## Adding files
 
-Cool! but this still isn't going anything for us because this directory is empty. So let's create a file in our new directory
+Cool! but this still isn't going anything for us because this directory is empty. So let's create a file in our new directory. Open it up with your 
+favorite text editor.
 
 ~~~
 $ touch fruit_list.txt
-$ nano fruit_list.txt
+$ mate fruit_list.txt
 ~~~
 
 Let's add some fruits:
@@ -43,8 +47,6 @@ banana
 apple
 peach
 ~~~
-
-Remember `CTRL + O` to write, and `CTRL + X` to exit.
 
 Now let's see what git is up to with `git status`
 
@@ -90,7 +92,7 @@ Now we're ready to `commit` this file. Committing changes means making a permane
 $ git commit
 ~~~
 
-You'll see something like this:
+This will open up your preferred text editor and you'll see something like this:
 
 ~~~
 # Please enter the commit message for your changes. Lines starting
@@ -136,7 +138,7 @@ In a repository, a file can exist in one of four states:
 To see how this works, let's change that readme file to say something else, and then run `git status` again
 
 ~~~
-$ nano fruit_list.txt
+$ mate fruit_list.txt
 ~~~
 
 Let's change apple to kiwi:
@@ -181,15 +183,18 @@ $ git commit -am "fruit_list updated"
 
 ## Ignoring files
 
-What if you have just put a bunch of files in your repo, that you want to add all at once?
+Let's add a bunch of files to the repo.
 
 ~~~{.input}
 $ touch LICENSE CITATION grapher.R sorter.py passwords.log
 ~~~
 
-You could write them all out in your add command, or you can use `git add -A`
+What if you want to add all of the files you've changed, but you also have a bunch of junk files in your repo (like the auxiliary files from compiling a LaTeX document)?
 
-However, this will add *ALL THE THINGS* in your repo, which is probably something you don't want
+You could write them all out in your add command, or you can use `git add -A`
+or `git add *`
+
+However, this will add *ALL THE THINGS* in your repo, which is probably something you don't want.
 
 > You don't want to clutter your tracked files with a bunch of temp files or OS garbage
 > You *ESPECIALLY* don't want to accidentally share any keys or credentials files!
@@ -202,10 +207,10 @@ Luckily, git has a workaround for this called `.gitignore`
 
 ~~~ {.input}
 $ touch .gitignore
-$ nano .gitignore
+$ mate .gitignore
 ~~~
 
-Let's make sure Git doesn't track any log files:
+Let's make sure Git doesn't track any log files by adding the file extension to the gitignore file. The gitignore follows UNIX file naming and wildcard conventions.
 
 ~~~
 # Files to ignore
@@ -236,7 +241,8 @@ nothing to commit, working directory clean
 Thus we can safely proceed to add and commit all files:
 
 ~~~
-$ git add -A && git commit -m "adding new files"
+$ git add -A
+$ git commit -m "adding new files"
 ~~~
 
 ## Acknowledgments

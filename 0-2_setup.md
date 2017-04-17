@@ -64,9 +64,9 @@ command from the table below:
 Make sure everything was entered correctly by typing `git config --list`
 
 ~~~{.output}
-user.name=Dillon Niederhut
-user.email=dillon.niederhut@gmail.com
-core.editor=nano
+user.name=Kellie Ottoboni
+user.email=kellieotto@berkeley.edu
+core.editor=mate
 ~~~
 
 ## Getting Help
