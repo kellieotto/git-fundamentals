@@ -11,7 +11,7 @@ While git is useful to use locally, it is invaluable when there are lots of peop
 When you `clone` a repo, git automatically adds the source you cloned from as the remote origin. Let's all clone this repo:
 
 ~~~
-$ git clone https://github.com/dlab-berkeley/git-fundamentals
+$ git clone https://github.com/kellieotto/git-fundamentals
 ~~~
 
 Now when you type `ls` you should see the folder in your `pwd`. If you `cd`
@@ -25,8 +25,8 @@ git remote -v
 And you should see an output that looks something like this:
 
 ~~~{.output}
-origin  https://github.com/dlab-berkeley/git-fundamentals (fetch)
-origin  https://github.com/dlab-berkeley/git-fundamentals (push)
+origin  https://github.com/kellieotto/git-fundamentals (fetch)
+origin  https://github.com/kellieotto/git-fundamentals (push)
 ~~~
 
 You can get information about that remote with:
@@ -39,8 +39,8 @@ Which, for me, yields this:
 
 ~~~{.output}
 * remote origin
-  Fetch URL: https://github.com/dlab-berkeley/git-fundamentals
-  Push  URL: https://github.com/dlab-berkeley/git-fundamentals
+  Fetch URL: https://github.com/kellieotto/git-fundamentals
+  Push  URL: https://github.com/kellieotto/git-fundamentals
   HEAD branch: master
   Remote branches:
     gh-pages tracked
@@ -63,8 +63,8 @@ And now when we run `git remote -v`, we see:
 ~~~{.output}
 test	/home/oski/test/.git (fetch)
 test	/home/oski/test/.git (push)
-origin	git@github.com:deniederhut/git-fundamentals.git (fetch)
-origin	git@github.com:deniederhut/git-fundamentals.git (push)
+origin	git@github.com:kellieotto/git-fundamentals.git (fetch)
+origin	git@github.com:kellieotto/git-fundamentals.git (push)
 ~~~
 
 This is useful if you have already initialized a git repository in your local directory that you want to live at a URL or server where other people are able to access it. To send our data to that remote, we'll `push` it. Try changing a file, adding it, committing it, and then typing:
@@ -77,22 +77,21 @@ What happens? You should see:
 
 ~~~{.output}
 remote: Invalid username or password.
-fatal: Authentication failed for 'https://github.com/deniederhut/git-fundmantals.git/'
+fatal: Authentication failed for 'https://github.com/kellieotto/git-fundmantals.git/'
 ~~~
 
 This is because if you don't specify the remote, git assumes that you mean `origin` (just like BASH assumes you mean `pwd`), and you don't have write access to my repository. 
 
-The general, best-practices workflow with a remotely hosted git repository looks like this:
+## Basic workflow
 
-1. Fetch
-2. Merge
-3. Branch
-4. Modify
-5. Commit
-6. Merge 
-7. Push
+The simplest best-practices workflow with a remotely hosted git repository looks like this:
 
-`Fetch` means to retrieve data from a remote. `Push` means to send data to a remote. Usually, when you retrieve data from a remote, you let git retrieve the data and merge it into your local data automatically - this is done with the `pull` command, like:
+1. Pull
+2. Modify
+3. Commit
+4. Push
+
+Usually, when you retrieve data from a remote, you let git retrieve the data and merge it into your local data automatically - this is done with the `pull` command, like:
 
 ~~~{.input}
 git pull origin
