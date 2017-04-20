@@ -165,3 +165,58 @@ $ cat fruit_list.txt
 ~~~
 
 will give us our kiwi back.
+
+## Undoing screw-ups
+
+Oh shit. You committed something that you didn't intend to. Maybe you pushed it to GitHub. Can you rewrite history and fix it?
+
+Probably. There's a comprehensive list of screw-ups and ways to fix them [on the GitHub blog](https://github.com/blog/2019-how-to-undo-almost-anything-with-git
+).  I'll just go through a few examples here. We'll start by adding two new commits.
+
+~~~{.input}
+$ touch research.txt results.csv
+$ git add *
+$ git commit -m 'Yay results'
+$ mate research.txt
+$ git add research.txt
+$ git commit -m 'Revised research'
+~~~
+
+Oops, we introduced typos in the research in this last commit. We don't want these typos to appear in the commit history, so let's fix them and recommit the changes.
+
+~~~{.input}
+$ git reset --soft HEAD~
+$ git status
+~~~
+
+`HEAD~` specifies that we want to peel back one commit past the `HEAD`. This moves the `HEAD` back one commit. The `--soft` flag leaves the typos in research.txt in the staging area and in the working directory; only the `HEAD` gets reset.
+
+~~~{.output}
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   research.txt
+
+nothing to commit, working directory clean
+~~~
+
+Now we can make the changes we want and recommit.
+
+~~~{.input}
+$ mate research.txt
+$ git add research.txt
+$ git commit -m 'Revised research'
+~~~
+
+What if we want to nuke those two files completely? We'd use the `--hard` reset flag and tell git to move the `HEAD` back two commits. Don't do this unless you're sure you don't want to keep changes! (They will still be in the tree, so you *can* get them back with some work...)
+
+~~~{.input}
+$ git reset --hard HEAD~2
+$ git status
+~~~
+
+~~~{.output}
+On branch master
+nothing to commit, working tree clean
+~~~
