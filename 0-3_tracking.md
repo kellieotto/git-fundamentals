@@ -4,7 +4,9 @@ subtitle: Tracking Files
 minutes:
 ---
 
-Okay, we have git ready to go, now let's try using it!
+## The git Trees
+
+Your git history is actually saved as a directed acyclic graph: each commit points back to the previous one.  [The Pro Git book has some nice illustrations of the DAG.](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified)
 
 ## Making a repository
 
