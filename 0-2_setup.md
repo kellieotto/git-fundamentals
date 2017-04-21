@@ -33,16 +33,15 @@ git config --global user.name "Firstname Lastname"
 git config --global user.email username@company.extension
 ~~~
 
-Your name and email address is included in every change that you make, so it's easy to keep track of who did what
+Your name and email address is included in every change that you make, so it's easy to keep track of who did what.
 
-Also, unless you are a vimwizard, I would recommend changing your default editor to nano
+
+You should set your default text editor. You can type in the appropriate
+command from the table below or choose another one. I use TextMate.
 
 ~~~{.input}
-git config --global core.editor nano
+git config --global core.editor "mate"
 ~~~
-
-If you have a different favorite editor, you can type in the appropriate
-command from the table below:
 
 | Editor             | Configuration command                            |
 |:-------------------|:-------------------------------------------------|

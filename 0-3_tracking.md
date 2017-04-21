@@ -122,7 +122,7 @@ This time, we'll add "fruit_list added" and then type `^x` to write and quit
  create mode 100644 fruit_list.txt
 ~~~
 
-If you don't want to open nano every time you make a commit, you can use flag m
+If you don't want to open the text editor every time you make a commit, you can use flag m
 
 ~~~{.input}
 $ git commit -m "fruit_list added"

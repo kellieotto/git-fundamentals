@@ -47,7 +47,7 @@ Each checkout will change the files your working on to the state of that branch.
 Let's add a couple fruits to fruit_list.txt:
 
 ~~~
-$ nano fruit_list.txt
+$ mate fruit_list.txt
 ~~~
 
 Adding:
@@ -89,14 +89,18 @@ Click the button and submit the pull request if it can be automatically merged. 
 
 ## Merging new changes
 
-Now the master branch has our new feature. We can delete the branch when work
-on the feature is over:
+Now the master branch has our new feature. Yay! First, we should update the changes in our master branch.
 
 ~~~
-$ git branch -d new_fruits
+$ git checkout master
+$ git pull upstream master
+~~~
+
+If we're done working on that particular feature, we can delete the branch locally and on GitHub:
+
+~~~
+$ git branch -d new_fruits 
+$ git push origin :new_fruits
 ~~~
 
 When we type `git branch` we no longer see our branch.
-
-
- 
