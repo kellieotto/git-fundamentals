@@ -6,31 +6,40 @@ minutes:
 
 ## Introduction
 
-Basics:
--fork the repo, creating your own version. Add it as the "origin" remote and add the main repo as the "upstream" remote
-- Always pull from upstream, push to origin *include wheel figure here
-- Do development on a branch
-- Push to origin branch, create pull request. You request the main repo to pull from you. *include diagram or screenshot here
+GitHub is a powerful tool for collaboration. Once you start using it for big projects, you don't want to use the usual workflow. Having several people pushing to and pulling from a single repository is a merge conflict disaster waiting to happen.
+
+Instead, most people use a circular workflow, pulling from a central repository, pushing to their own fork of that repo, and creating pull requests for the main repo owners to review and merge.
 
 ![Collaborative GitHub Workflow](github-workflow.jpg)
 
 
+## Forking and cloning
+
+*Forking* means to create a copy of someone else's GitHub repository on GitHub. It's as easy as clicking the `Fork` button.
+
+*Cloning* means copying a repository from GitHub to your local machine. You can simply copy the URL of the repository you want to clone:
+
+~~~{.input}
+git clone https://github.com/YOUR-USERNAME/REPO-NAME.git
+~~~
+
+Once you've done that, you want to set up your remotes. We talked about how to do this in the previous lesson. You can name them whatever you want, but the convention is to call your fork `origin` and to call the main repo `upstream`.
+
 ## Branching
 
-We've mentioned branching a few times now as the proper workflow. While you may
-think making changes on your local repository and tracking the changes is sufficient,
-many workflows will necissitate branching. Branching allows for multiple
-versions of a repository to exist together in your local files. If you are
-working on a new feature, you should first create a new branch and then work on
-the feature in that branch. This allows the master branch to continue serving
-as the working program, and additionally allows for other intermediate fixes to
-made to the master branch, all while you're working on your own new feature.
+We've mentioned branching a few times now as the proper workflow. Branching allows for multiple versions of a repository to exist together in your local files. If you are working on a new feature, you should first create a new branch and then work on the feature in that branch. This allows the master branch to continue serving as the working program, and additionally allows for other intermediate fixes to made to the master branch, all while you're working on your own new feature.
 
 Let's make a new branch in our fruits repository:
 
 ~~~
 $ git branch new_fruits
 $ git checkout new_fruits
+~~~
+
+You could combine this into one line by calling `checkout` with the `-b` flag:
+
+~~~
+$ git checkout -b new_fruits
 ~~~
 
 We're going to use this branch to add new fruits, while someone else will take
@@ -47,7 +56,7 @@ Each checkout will change the files your working on to the state of that branch.
 Let's add a couple fruits to fruit_list.txt:
 
 ~~~
-$ nano fruit_list.txt
+$ mate fruit_list.txt
 ~~~
 
 Adding:
@@ -68,19 +77,12 @@ $ git add fruit_list.txt
 $ git commit -m "added some new fruits"
 ~~~
 
-If the feature works, and we decide we like it, we can merge it into the master
-branch, after first checking out to `master`:
+If the feature works, and we decide we like it, we're ready to merge it into the working repository.
 
-~~~
-$ git checkout master
-~~~
+## 
 
-If we `cat fruit_list.txt`, we see that it does not include our new feature. To
-merge:
 
-~~~
-$ git merge new_fruits
-~~~
+## Cleaning up and starting again
 
 Now the master branch has our new feature. We can delete the branch when work
 on the feature is over:
