@@ -40,7 +40,7 @@ You should set your default text editor. You can type in the appropriate
 command from the table below or choose another one. I use TextMate.
 
 ~~~{.input}
-git config --global core.editor "mate"
+git config --global core.editor "/usr/local/bin/mate -w"
 ~~~
 
 | Editor             | Configuration command                            |
