@@ -71,16 +71,23 @@ $ git commit -m "added some new fruits"
 If the feature works, and we decide we like it, we can merge it into the master
 branch, after first checking out to `master`:
 
+## Opening a pull request
+
+Unless you own the main project repository, you won't have push access. Instead, you need to push to your own fork of the repo and open a `pull request`. It's called that because you're essentially asking the main repo to pull from your feature branch and merge those changes into its master branch.
+
+When we push to GitHub, we need to tell git where to push it. Specifically, to which remote and what branch?
+
 ~~~
-$ git checkout master
+$ git push origin new_fruits
 ~~~
 
-If we `cat fruit_list.txt`, we see that it does not include our new feature. To
-merge:
+Now, we can go to the GitHub repo and we should see something like this:
 
-~~~
-$ git merge new_fruits
-~~~
+![open a pull request](pull-request.png)
+
+Click the button and submit the pull request if it can be automatically merged. (Otherwise, you may need to do some additional work to make your new features compatible with the master branch.) The main repo owner can then decide whether or not to merge your branch.
+
+## Merging new changes
 
 Now the master branch has our new feature. We can delete the branch when work
 on the feature is over:
@@ -91,25 +98,5 @@ $ git branch -d new_fruits
 
 When we type `git branch` we no longer see our branch.
 
-## Vegetables
 
-Everyone will now be working with the person next to them as if you were
-collaborating on a project together. As we've been working with fruits today,
-let's finish with vegetables. Partner 1 should create a new repository in
-GitHub - "vegetables", `clone` the repository to their computer, create a new  `branch`, add a file titled
-`vegetables_list.txt`, which contains a list of vegetables, `add` the file,
-`commit` the file, `merge` it to the master branch, and `push` it to the remote repository. After this, you should
-see the file inside the repository on GitHub.
-
-Partner 1 should then give access to the repository to Partner 2 by clicking on
-the repository, clicking the "Settings" tab, then "Collaborators", and adding
-Partner 2. 
-
-Partner 2 should then `clone` Partner 1's repository, create a new
-`branch`, modify
-`vegetables_.txt`, `add` the file, `commit` the file, `merge` to master, and `push` to the remote
-repository. The changes should now appear on the GitHub page.
-
-To complete the process, Partner 1 should `pull` the changes from the remote to
-update their local repository.
  
