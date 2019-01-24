@@ -7,10 +7,11 @@ minutes:
 ## Introduction
 
 Basics:
--fork the repo, creating your own version. Add it as the "origin" remote and add the main repo as the "upstream" remote
-- Always pull from upstream, push to origin *include wheel figure here
+
+- fork the repo, creating your own version. Add it as the "origin" remote and add the main repo as the "upstream" remote
+- Always pull from upstream, push to origin 
 - Do development on a branch
-- Push to origin branch, create pull request. You request the main repo to pull from you. *include diagram or screenshot here
+- Push to origin branch, create pull request. You request the main repo to pull from you. 
 
 ![Collaborative GitHub Workflow](github-workflow.jpg)
 
